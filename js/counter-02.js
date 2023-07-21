@@ -24,9 +24,17 @@ window.addEventListener('click', function(){
 
     // Проверяем является ли элемент кнопкой минус
     if(event.target.dataset.action === 'minus') {
+
        if(parseInt(counter.innerText) > 1 ){
             // Изменяем текст в счётчике уменьшая его на 1
             counter.innerText = --counter.innerText
+        } else // Проверка на товар который находиться в корзине
+        if (this.event.target.closest('.cart-wrapper') && parseInt(counter.innerText) === 1) {
+            // Удаление товара из корзины
+            this.event.target.closest('.cart-item').remove()
         }
+
+       
+        
     }
 })
