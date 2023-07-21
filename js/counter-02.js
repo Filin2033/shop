@@ -32,9 +32,22 @@ window.addEventListener('click', function(){
         if (this.event.target.closest('.cart-wrapper') && parseInt(counter.innerText) === 1) {
             // Удаление товара из корзины
             this.event.target.closest('.cart-item').remove()
+
+            // Отображение статуса корзины Пустая/Полная
+            toggleCartStatus()
+
+            // Пересчитываем общую стоимость товаров в корзине
+            calcCartPriceAndDelyvery();
         }
 
        
         
     }
+
+    // Проверяем клик на + или - внутри корзины 
+    if (this.event.target.hasAttribute('data-action') && this.event.target.closest('.cart-wrapper')) {
+        calcCartPriceAndDelyvery();
+    }
+
+
 })
