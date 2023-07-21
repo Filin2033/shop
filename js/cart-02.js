@@ -58,11 +58,18 @@ window.addEventListener('click', function (event){
         
         // Отобразим товар в корзине
         cartwrapper.insertAdjacentHTML('beforeend', cartItemHTML)
+
+        
         }
 
         // Сбрасываем счетчик на "1"
         card.querySelector('[data-counter]').innerText = '1'
-       
+
+        // Отображение статуса корзины Пустая/Полная
+        toggleCartStatus();
+        // Пересчитываем общую стоимость товаров в корзине
+        calcCartPriceAndDelyvery();
+
     }
 })
 
